@@ -1,0 +1,26 @@
+diff --git a/node_modules/finnish-bank-utils/dist/finnish-bank-utils.js b/node_modules/finnish-bank-utils/dist/finnish-bank-utils.js
+index 07ac538..4426149 100644
+--- a/node_modules/finnish-bank-utils/dist/finnish-bank-utils.js
++++ b/node_modules/finnish-bank-utils/dist/finnish-bank-utils.js
+@@ -337,7 +337,7 @@
+ 
+       var iban = removeAllWhiteSpaces(object.iban),
+           euros = Math.floor(object.sum),
+-          cents = object.sum * 100 - euros * 100,
++          cents = (object.sum * 100 - euros * 100).toFixed(0),
+           reference = removeAllWhiteSpaces(object.reference),
+           day = 0,
+           month = 0,
+diff --git a/node_modules/finnish-bank-utils/src/finnish-bank-utils.js b/node_modules/finnish-bank-utils/src/finnish-bank-utils.js
+index 8c085fd..e9e0865 100644
+--- a/node_modules/finnish-bank-utils/src/finnish-bank-utils.js
++++ b/node_modules/finnish-bank-utils/src/finnish-bank-utils.js
+@@ -351,7 +351,7 @@ const FinnishBankUtils = {
+     let
+       iban = removeAllWhiteSpaces(object.iban),
+       euros = Math.floor(object.sum),
+-      cents = object.sum * 100 - euros * 100,
++      cents = (object.sum * 100 - euros * 100).toFixed(0),
+       reference = removeAllWhiteSpaces(object.reference),
+       day = 0,
+       month = 0,
